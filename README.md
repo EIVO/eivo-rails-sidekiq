@@ -22,6 +22,8 @@ Or install it yourself as:
 
 	$ rails g eivo:sidekiq:install
 
+You must use a dedicated Redis instance for sidekiq, more informations [here](http://www.mikeperham.com/2015/09/24/storing-data-with-redis/).
+
 ## License
 
 This project is released under the MIT license. See the LICENSE file for more info.
