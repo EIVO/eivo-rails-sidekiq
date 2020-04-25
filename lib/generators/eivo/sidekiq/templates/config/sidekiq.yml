@@ -1,11 +1,3 @@
 :concurrency: <%= ENV.fetch('SIDEKIQ_THREADS') { 5 } %>
-staging:
-  :daemon: true
-  :pidfile: tmp/pids/sidekiq-staging.pid
-  :logfile: log/sidekiq-staging.log
-production:
-  :daemon: true
-  :pidfile: tmp/pids/sidekiq.pid
-  :logfile: log/sidekiq.log
 :queues:
   - default

@@ -2,7 +2,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name          = 'eivo-rails-sidekiq'
-  spec.version       = '0.0.2'
+  spec.version       = '0.1.0'
   spec.authors       = ['Jonathan VUKOVICH-TRIBOUHARET']
   spec.email         = ['jonathan@eivo.co']
 
@@ -16,8 +16,7 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'sidekiq', '< 6'
-  spec.add_dependency 'redis-namespace'
+  spec.add_dependency 'sidekiq', '>= 6', '< 7'
   spec.add_dependency 'hiredis'
 
   spec.add_development_dependency 'bundler'
