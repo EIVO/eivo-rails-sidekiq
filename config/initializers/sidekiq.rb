@@ -14,7 +14,10 @@ end
 
 Sidekiq.configure_server do |config|
   config.redis = redis_config.dup
-  config.log_formatter = Sidekiq::Logger::Formatters::JSON.new
+
+  if Rails.env.staging? || Rails.env.production?
+    config.log_formatter = ::EIVO::Formatter.new
+  end
 end
 
 ActiveJob::Base.queue_adapter = :sidekiq if defined?(ActiveJob)
