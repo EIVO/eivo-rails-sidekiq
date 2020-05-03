@@ -17,6 +17,13 @@ Sidekiq.configure_server do |config|
 
   if Rails.env.staging? || Rails.env.production?
     config.log_formatter = ::EIVO::Formatter.new
+
+    config.error_handlers << proc do |error, context|
+      Sidekiq.logger.error {
+        error: ["#{e.class.name}: #{e.message}", e.backtrace.to_s.join("\n")].join("\n"),
+        context: context
+      }
+    end
   end
 end
 
