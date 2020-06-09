@@ -20,7 +20,7 @@ Sidekiq.configure_server do |config|
 
     config.error_handlers << proc do |error, context|
       Sidekiq.logger.error({
-        error: ["#{e.class.name}: #{e.message}", e.backtrace&.join("\n")].join("\n"),
+        error: ["#{error.class.name}: #{error.message}", error.backtrace&.join("\n")].join("\n"),
         context: context
       })
     end
